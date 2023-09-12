@@ -1,0 +1,27 @@
+fr = open('text.txt','r')
+ord_food = 1
+each_food = []
+each_count = []
+low = []
+for row in fr:
+  if '\n' in row:
+    ord_food += 1
+  line = row.split()[1]
+  if line in each_food:
+    for i in range(len(each_food)):
+      if line == each_food[i]:
+        each_count[i] +=1   
+  else:
+    each_food.append(line)
+    each_count.append(1)
+for i in range(len(each_food)):
+  print(each_food[i],each_count[i])
+  if each_count[i] <20:
+    low.append(each_food[i])
+if len(low) == 0:
+  print('vsetky jedla si objednalo dost ludi')
+else:
+  loww = ''
+  for i in range(len(low)):
+    loww += low[i]+' '
+  print(loww,'si objednalo malo ludi')
